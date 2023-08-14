@@ -22,7 +22,7 @@ from PIL import Image
 try:
     import scripts.set_working_directory as set_wd
 except:
-    import set_working_dir as set_wd
+    import set_working_directory as set_wd
 
 ############################
 # Set Working Directory:
@@ -34,8 +34,8 @@ working_dir = set_wd.set_working_directory()
 # Import image data and add to new folder:
 ###########################################
 
-image_dir_normal = '/Users/felixhawksworth/Downloads/Input_images/Normal/'
-image_dir_TB = '/Users/felixhawksworth/Downloads/Input_images/Tuberculosis/'
+image_dir_normal = '/Users/fionnmacn/Downloads/chest_xrays/Normal/'
+image_dir_TB = '/Users/fionnmacn/Downloads/chest_xrays/Tuberculosis/'
 
 
 # Find PNG files in the directory
@@ -44,18 +44,19 @@ all_files_TB = glob.glob(os.path.join(image_dir_TB, '*.png'))
 
 # Testing if images read in:
 
-if not all_files_TB:
-    print("No PNG files found in the directory.")
-else:
-    for png_file in all_files_TB:
-        try:
-            print("Processing:", png_file)
-            image = Image.open(png_file)
-            plt.imshow(image)
-            plt.title(png_file)
-            plt.show()
-        except Exception as e:
-            print(f"Error processing {png_file}: {e}")
+def check_image_read():
+    if not all_files_TB:
+        print("No PNG files found in the directory.")
+    else:
+        for png_file in all_files_TB:
+            try:
+                print("Processing:", png_file)
+                image = Image.open(png_file)
+                plt.imshow(image)
+                plt.title(png_file)
+                plt.show()
+            except Exception as e:
+                print(f"Error processing {png_file}: {e}")
 
 print("Processing complete.")
 
@@ -75,27 +76,33 @@ test_train_viral = all_files_TB[0:int((len(all_files_TB)*0.9))]
 normal_train, normal_test = train_test_split(test_train_normal, test_size=0.2, random_state=0)
 viral_train, viral_test = train_test_split(test_train_viral, test_size=0.2, random_state=0)
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/train/normal'), exist_ok=True)
 for i in normal_train:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/train/normal')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/train/normal')
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/test/normal'), exist_ok=True)
 for i in normal_test:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/test/normal')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/test/normal')
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/train/viral'), exist_ok=True)
 for i in viral_train:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/train/viral')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/train/viral')
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/test/viral'), exist_ok=True)
 for i in viral_test:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/test/viral')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/test/viral')
 
 # Get validate set:
 validate_normal = all_files_norm[int((len(all_files_norm)*0.9)):len(all_files_norm)]
 validate_viral = all_files_TB[int((len(all_files_TB) * 0.9)):len(all_files_TB)]
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/validate/normal'), exist_ok=True)
 for i in validate_normal:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/validate/normal')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/validate/normal')
 
+os.makedirs(os.path.dirname('/Users/fionnmacn/Downloads/cleaned_data/validate/viral'), exist_ok=True)
 for i in validate_viral:
-    shutil.copy(i, r'/Users/felixhawksworth/Downloads/cleaned_data/validate/viral')
+    shutil.copy(i, r'/Users/fionnmacn/Downloads/cleaned_data/validate/viral')
 
 print("Summary: ")
 print("Normal test: ", len(normal_test))
