@@ -31,3 +31,5 @@ working_dir = set_wd.set_correct_working_dir()
 ###########################################
 # Import image data and add to new folder:
 ###########################################
+
+all_files_norm = glob.glob(r"./Users/felixhawksworth/Downloads/Input_images/Normal/*g")
