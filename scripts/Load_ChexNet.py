@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 best_model = load_model('chexnet_model.h5')
 
 # Define validation data directory
-validation_data_dir = '/Users/Tommy/Documents/2022College/DataMining2/cleaned_data/test'
+validation_data_dir = '/Users/Tommy/Documents/2022College/DataMining2/cleaned_data/valid'
 
 # Define input shape and batch size
 input_shape = (224, 224, 3)
