@@ -1,0 +1,2 @@
+﻿Validation Accuracy,Validation Loss,Model
+0.8333,0.4515,chexnet_model.h5
