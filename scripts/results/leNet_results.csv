@@ -1,0 +1,10 @@
+ACCURACY,MODEL
+0.1666666716337204,LeNet_binary_crossentropy0.1
+0.8333333134651184,LeNet_binary_crossentropy0.01
+0.8333333134651184,LeNet_mean_squared_error0.001
+0.8333333134651184,LeNet_mean_squared_logarithmic_error0.01
+0.8333333134651184,LeNet_mean_squared_logarithmic_error0.001
+0.8404762148857117,LeNet_binary_crossentropy0.001
+0.8833333253860474,LeNet_mean_squared_error0.01
+0.8999999761581421,LeNet_mean_squared_logarithmic_error0.1
+0.9309523701667786,LeNet_mean_squared_error0.1
