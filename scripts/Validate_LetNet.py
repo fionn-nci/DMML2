@@ -17,21 +17,6 @@ from tensorflow.keras.optimizers import RMSprop
 import math
 import numpy as np
 
-#try:
-#    import scripts.set_working_dir as set_wd
-#except:
-3    import set_working_dir as set_wd
-
-#########################################################
-# Set Working Directory:
-# - Ensure RELATIVE working directory (so it can be replicated by any user)
-# - Ensure users can read data using either Windows or UNIX folders
-# - Working directory should be '.\scripts' for windows or './scripts' for UNIX
-#########################################################
-
-#working_dir = set_wd.set_correct_working_dir()
-
-
 ############################################################
 # Get trained LeNet models:
 ############################################################
@@ -60,7 +45,7 @@ models = [[leNet_bc_1, "LeNet_binary_crossentropy0.1"], [leNet_bc_2, "LeNet_bina
           [leNet_msle_3, "LeNet_mean_squared_logarithmic_error0.001"]]
 
 ############################################################
-# Validate Models: get final results
+# Validate Models:
 ############################################################
 
 def get_validation_results(model_list, batch_size, target_size):
@@ -112,7 +97,7 @@ df_results = pd.DataFrame()
 all_results = []
 all_models = []
 
-# Lenet
+# Lenet results
 for i in lenet_accuracy:
     all_results.append(i[1])
     all_models.append(i[0])

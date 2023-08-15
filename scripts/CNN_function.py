@@ -26,37 +26,25 @@ import math
 
 
 ############################################################
-# Build 2 models, each with:
-# - 5 layers
-# - 5 Max Pooling
-# - 1 has Gradient Descent Optimisation, 1 has RMSProp
+# Developing 2 models, each with:
+# 5 layers
+# 5 Max Pooling
+# 1 has Gradient Descent Optimisation, 1 has RMSProp
 # Input variables:
 # - Loss function
 # - Optimisation learning rate
 # - Activation function
-
 ############################################################
 
 # Define your data directories
 train_data_dir = '/Users/felixhawksworth/Downloads/cleaned_data/train'
 test_data_dir = '/Users/felixhawksworth/Downloads/cleaned_data/test'
 
-######################################
-# Gradient Descent Optimisation:
-######################################
+########################################
+# Gradient Descent Optimisation Model:
+#######################################3
 
 def cnn_5_layers_sgd(loss, learning_rate, activation = 'relu'):
-    """
-    :param loss: Choose which methodology for calculating the loss function of the NN.
-                 Exhaustive list is provided below from Keras documentation: https://keras.io/api/losses/
-
-    :param learning_rate: Learning rate for a given optimisation fn
-
-    :param activation: Choose which activation method used for NN model.
-                      Exhaustive list is provided below from Keras documentation: https://keras.io/api/layers/activations/
-
-    :return: The trained NN model
-    """
 
     ##################################
     # Define model:
@@ -161,21 +149,10 @@ def cnn_5_layers_sgd(loss, learning_rate, activation = 'relu'):
     return model_name_loc
 
 ######################################
-# RMS Prop Optimisation:
+# RMS Prop Optimisation Model:
 ######################################
 
 def cnn_5_layers_rmsprop(loss, learning_rate, activation = 'relu'):
-    """
-    :param loss: Choose which methodology for calculating the loss function of the NN.
-                 Exhaustive list is provided below from Keras documentation: https://keras.io/api/losses/
-
-    :param learning_rate:
-
-    :param activation: Choose which activation method used for NN model.
-                      Exhaustive list is provided below from Keras documentation: https://keras.io/api/layers/activations/
-
-    :return: The trained NN model path
-    """
 
     ##################################
     # Define model:

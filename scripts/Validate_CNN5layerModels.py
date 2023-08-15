@@ -1,6 +1,7 @@
 ############################################################
 # DES: Load in the trained LeNet models
 # Run on validation dataset
+# Export final results
 ############################################################
 
 ############################################################
@@ -14,21 +15,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import RMSprop
-
-
-#try:
-#    import scripts.set_working_dir as set_wd
-#except:
-#    import set_working_dir as set_wd
-
-#########################################################
-# Set Working Directory:
-# - Ensure RELATIVE working directory (so it can be replicated by any user)
-# - Ensure users can read data using either Windows or UNIX folders
-# - Working directory should be '.\scripts' for windows or './scripts' for UNIX
-#########################################################
-
-#working_dir = set_wd.set_correct_working_dir()
 
 ############################################################
 # Get trained models: 5 layers CNNs
@@ -79,7 +65,7 @@ cnn5_msle_2_rm = tf.keras.models.load_model(r'/Users/felixhawksworth/Downloads/s
 cnn5_msle_3_rm = tf.keras.models.load_model(r'/Users/felixhawksworth/Downloads/saved_models/cnn_5lyr_rmsprp_mean_squared_logarithmic_error0.001')
 
 #################################
-# Combine all models
+# Combine models
 #################################
 
 models = [[cnn5_bc_1, "cnn_5layer_binary_crossentropy0.1"], [cnn5_bc_2, "cnn_5layer_binary_crossentropy0.01"], [cnn5_bc_3, "cnn_5layer_binary_crossentropy0.001"],
@@ -92,7 +78,7 @@ models = [[cnn5_bc_1, "cnn_5layer_binary_crossentropy0.1"], [cnn5_bc_2, "cnn_5la
           [cnn5_msle_3_rm, "cnn_5lyr_rmsprpmean_squared_logarithmic_error0.001"] ]
 
 ############################################################
-# Validate Model: get final results
+# Validate Model:
 ############################################################
 
 def get_validation_results(model_list, batch_size, target_size):
@@ -129,7 +115,7 @@ def get_validation_results(model_list, batch_size, target_size):
     return [accuracy, predcitions]
 
 #########################################
-# LeNet:
+# Final Results:
 #########################################
 
 cnn_output = get_validation_results(model_list=models, batch_size=128, target_size=(300,300))

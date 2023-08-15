@@ -1,5 +1,5 @@
 #########################################################
-# DES: Run multiple CNNs and find optimal results:
+# DES: Run multiple CNNs
 # BY: Felix Hawksworth
 #########################################################
 
@@ -16,33 +16,22 @@ from IPython.display import display
 from itertools import product
 
 #########################################################
-# Set Working Directory:
-# - Ensure RELATIVE working directory (so it can be replicated by any user)
-# - Ensure users can read data using either Windows or UNIX folders
-# - Working directory should be '.\scripts' for windows or './scripts' for UNIX
-#########################################################
-
-working_dir = set_wd.set_correct_working_dir()
-
-#########################################################
 # Import functions
 #########################################################
 
 import scripts.CNN_function as cnn_fns
 
-############################################################
+#####################################################################
 # Train models:
-# - 2 models defined in cnn_function: 1 has SGD optimisation, other has RMSProp
+# - 2 models defined in cnn_function: 1 has SGD optimisation, 1 has RMSProp
 # - Run 2 models with different combinations of parameters:
-# - - Optimisation
-# - - Loss function
+# - Optimisation
+# - Loss function
 # Number of models = 2 * 3 * 3
-############################################################
-
-
+###################################################################
 
 #########################################
-# Define combinations of paramters:
+# Define parameter combinations:
 #########################################
 
 # Loss functions
