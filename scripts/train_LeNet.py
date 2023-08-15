@@ -9,7 +9,7 @@
 ############################################################
 
 import os
-import scripts.set_working_dir as set_wd
+#import scripts.set_working_dir as set_wd
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import RMSprop
@@ -23,7 +23,7 @@ from itertools import product
 # - Working directory should be '.\scripts' for windows or './scripts' for UNIX
 #########################################################
 
-working_dir = set_wd.set_correct_working_dir()
+#working_dir = set_wd.set_correct_working_dir()
 
 # Define your data directories
 train_data_dir = '/Users/felixhawksworth/Downloads/cleaned_data/train'
