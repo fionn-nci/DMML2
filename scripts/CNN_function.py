@@ -10,20 +10,10 @@
 ############################################################
 
 import os
-#import scripts.set_working_dir as set_wd
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import RMSprop
 import math
-
-#########################################################
-# Set Working Directory:
-# - Ensure RELATIVE working directory (so it can be replicated by any user)
-# - Ensure users can read data using either Windows or UNIX folders
-# - Working directory should be '.\scripts' for windows or './scripts' for UNIX
-#########################################################
-
-
 
 ############################################################
 # Developing 2 models, each with:
