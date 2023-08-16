@@ -20,17 +20,6 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from PIL import Image
 
-try:
-    import scripts.set_working_directory as set_wd
-except:
-    import set_working_dir as set_wd
-
-############################
-# Set Working Directory:
-############################
-
-working_dir = set_wd.set_working_directory()
-
 ###########################################
 # Import image data and add to new folder:
 ###########################################

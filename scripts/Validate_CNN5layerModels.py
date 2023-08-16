@@ -1,5 +1,5 @@
 ############################################################
-# DES: Load in the trained LeNet models
+# DES: Load in the trained CNN models
 # Run on validation dataset
 # Export final results
 ############################################################
